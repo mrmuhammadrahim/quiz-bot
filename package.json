@@ -1,0 +1,22 @@
+{
+  "name": "quiz_bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.11.0",
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "mammoth": "^1.11.0",
+    "node-telegram-bot-api": "^0.67.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  }
+}
