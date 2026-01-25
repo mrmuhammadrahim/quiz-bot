@@ -18,6 +18,18 @@ bot.on("message", async msg => {
     if( text == "/start"){
         return bot.sendMessage(chatId, `Assalomu alaykum ${msg.from?.first_name}`)
     }
+
+    if( text == "/quiz"){
+        return bot.sendPoll(chatId, "Node.js nima?", [
+            "Frontend framework",
+            "Backend runtime",
+            "Database",
+            "OS"
+        ], {
+            type: "quiz",
+            correct_option_id: 1
+        })
+    }
     
 })
 
@@ -28,10 +40,11 @@ bot.on("document", async msg => {
 
     const filePath = await bot.downloadFile(fileId, "./files")
 
-    const data = await mammoth.extractRawText({path: filePath })
-    console.log(data.value)
+    const res = await mammoth.extractRawText({path: filePath })
+    
+    const data = res.value
 
     await fs.unlink(filePath)
-    return bot.sendMessage(chatId, data.value.length )
+    return bot.sendMessage(chatId, data.length )
     
 })
